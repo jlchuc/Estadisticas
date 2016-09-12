@@ -6,7 +6,6 @@
 package dataset;
 
 import linkedlist.LinkedList;
-import linkedlist.Node;
 
 /**
  *
@@ -21,9 +20,7 @@ public class DataSet {
     }
 
     public void add(double value) {
-        Node n = new Node();
-        n.setData(value);
-        lista.add(n);
+        lista.add(value);
     }
 
     public int size() {
@@ -33,15 +30,15 @@ public class DataSet {
     public double average() throws Exception {
         int n = lista.size();
         if (n > 0) {
-            Node nodo = null;
+            double value;
             double suma = 0.0;
             for (int i = 0; i < n; i++) {
-                nodo = lista.get(i);
-                suma += nodo.getData();
+                value = lista.get(i);
+                suma += value;
             }
             return suma / n;
         } else {
-            throw new Exception("Lista vac�a");
+            throw new Exception("Lista vacía");
         }
     }
 
@@ -49,11 +46,11 @@ public class DataSet {
         int n = lista.size();
         double promedio = average();
         if (n > 1) {
-            Node nodo = null;
+            double value;
             double suma = 0.0;
             for (int i = 0; i < n; i++) {
-                nodo = lista.get(i);
-                suma += Math.pow(nodo.getData() - promedio, 2);
+                value = lista.get(i);
+                suma += Math.pow(value - promedio, 2);
             }
             return Math.sqrt(suma / (n - 1));
         } else {

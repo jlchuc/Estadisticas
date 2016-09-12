@@ -21,7 +21,9 @@ public class LinkedList {
         counter = 0;
     }
 
-    public void add(Node n) {
+    public void add(double value) {
+        Node n = new Node();
+        n.setData(value);
         if (first == null) {
             first = n;
             last = n;
@@ -38,15 +40,15 @@ public class LinkedList {
         return counter;
     }
 
-    public Node get(int index) {
+    public double get(int index) {
         if (index >= 0 && index < size()) {
             Node n = first;
             for (int i = 0; i < index; i++) {
                 n = n.getNextNode();
             }
-            return n;
+            return n.getData();
         } else {
-            return null;
+            throw new ArrayIndexOutOfBoundsException("Índice fuera de límites.");
         }
     }
 
